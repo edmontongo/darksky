@@ -30,7 +30,7 @@ var (
 	ErrUnknown      = errors.New("unknown")
 )
 
-func NewDarkSky(host, secretKey string) *DarkSky {
+func New(host, secretKey string) *DarkSky {
 	return &DarkSky{Host: host, SecretKey: secretKey}
 }
 
