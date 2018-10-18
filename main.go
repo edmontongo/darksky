@@ -7,9 +7,8 @@ import (
 )
 
 func main() {
-	const host = "https://api.darksky.net"
 	const secretKey = "0123456789abcdef9876543210fedcba"
-	ds := darksky.New(host, secretKey)
+	ds := darksky.New(secretKey)
 
 	edmonton := darksky.Location{Lat: 53.5458874, Long: -113.5034304}
 	w, err := ds.Forecast(edmonton)
