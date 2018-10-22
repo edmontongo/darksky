@@ -30,8 +30,8 @@ var (
 	ErrUnknown      = errors.New("unknown")
 )
 
-func NewDarkSky(host, secretKey string) *DarkSky {
-	return &DarkSky{Host: host, SecretKey: secretKey}
+func New(secretKey string) *DarkSky {
+	return &DarkSky{Host: "https://api.darksky.net", SecretKey: secretKey}
 }
 
 func (ds *DarkSky) Forecast(l Location) (*Weather, error) {

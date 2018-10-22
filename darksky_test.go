@@ -19,7 +19,7 @@ func TestForecast(t *testing.T) {
 	ts := httptest.NewServer(handler)
 	defer ts.Close()
 
-	ds := NewDarkSky(ts.URL, "secret")
+	ds := DarkSky{Host: ts.URL, SecretKey: "secret"}
 	w, err := ds.Forecast(Location{})
 	if err != nil {
 		t.Fatal(err)
@@ -41,7 +41,7 @@ func TestBadSecret(t *testing.T) {
 	ts := httptest.NewServer(handler)
 	defer ts.Close()
 
-	ds := NewDarkSky(ts.URL, "secret")
+	ds := DarkSky{Host: ts.URL, SecretKey: "secret"}
 	_, err := ds.Forecast(Location{})
 
 	if err != ErrUnauthorized {
